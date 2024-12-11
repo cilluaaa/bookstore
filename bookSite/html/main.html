@@ -1,0 +1,396 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Книги</title>
+</head>
+<body>
+    <div class="mainPage">
+        <div class="buttonsMenu" hidden>
+            <!--<button class="buttons"> О нас </button>
+        <button class="buttons" style="margin-left: 50px"> О нас </button>
+        <button class="buttons" style="margin-left: 50px"> О нас </button>-->
+            <input type="button" id="info" />
+            <input type="button" id="contacts" />
+            <input type="button" id="map" />
+            <input type="button" id="enter" />
+            <ol>
+                <li>
+                    <label for="info">О нас</label>
+                </li>
+                <li>
+                    <label for="contacts">Контакты</label>
+                </li>
+                <li>
+                    <label for="map">На карте</label>
+                </li>
+                <li>
+                    <label id="enterLi" for="enter">Вход</label>
+                </li>
+            </ol>
+
+        </div>
+
+
+
+        <div id="auth-modal-enter" class="modal">
+            <div class="modal-content">
+                <div class="top">
+                    <div>
+                        <h2 class="h2Top">Авторизация</h2>
+                    </div>
+                    <div>
+                        <button type="reset" class="exit">×</button>
+                    </div>
+                </div>
+                <form id="auth-form-enter">
+                    <div>
+                        <input type="text" id="login" placeholder="Логин">
+                    </div>
+                    <div>
+                        <input type="password" id="password" placeholder="Пароль" masked="*">
+                    </div>
+                    <div id="faultEnter"></div>
+                    <div class="buttonsMenuOnForm">
+                        <button type="button" id="vhod">Войти</button>
+                        <button type="button" id="registracia">Регистрация</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div id="auth-modal-registracia" class="modal">
+            <div class="modal-content">
+                <div class="top">
+                    <div>
+                        <h2 class="h2Top">Регистрация</h2>
+                    </div>
+                    <div>
+                        <button type="reset" class="exit">×</button>
+                    </div>
+                </div>
+                <form id="auth-form-registracia">
+                    <div>
+                        <input type="text" id="login-reg" placeholder="Логин">
+                    </div>
+                    <div>
+                        <input type="password" id="password-reg" placeholder="Пароль" masked="*">
+                    </div>
+                    <div>
+                        <input type="password" id="password-reg-conf" placeholder="Подтвердите пароль" masked="*">
+                    </div>
+                    <div id="faultReg"></div>
+                    <div class="buttonsMenuOnForm">
+                        <button type="reset" id="resetBtn">Сбросить</button>
+                        <button type="button" id="registraciaConfirm">Подтвердить</button>        
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <h1 id="title" hidden>Книжный магазин</h1>
+        <br />
+        <br />
+
+        <div class="quote-container" hidden>
+            <p id="Citata">
+                «Любите книгу, она облегчит вам  жизнь, дружески
+                поможет разобраться в пестрой и бурной путанице
+                мыслей,  чувств,  событий, она  научит вас уважать
+                человека и  самих себя,  она окрыляет  ум и сердце
+                чувством любви к миру, к человеку»
+            </p>
+            <p class="author">Максим Горький</p>
+            <div class="buttonsMenu" hidden>
+                <input type="button" id="toBooks" />
+                <ol>
+                    <li>
+                        <label for="toBooks">К книгам!</label>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+
+        <div class="booksPage">
+
+            <div class="filter">
+                <h2>Фильтры</h2>
+                <h4>По жанрам:</h4>
+                <input type="radio" id="all" value="all" name="filter" checked />
+                <input type="radio" id="roman" value="roman" name="filter" />
+                <input type="radio" id="povest" value="povest" name="filter" />
+                <input type="radio" id="rasskaz" value="rasskaz" name="filter" />
+                <input type="radio" id="antiutopia" value="antiutopia" name="filter" />
+                <input type="radio" id="fentezi" value="fentezi" name="filter" />
+                <input type="radio" id="detektiv" value="detektiv" name="filter" />
+                <input type="radio" id="biografia" value="biografia" name="filter" />
+
+
+                <ol class="filters">
+                    <li>
+                        <label for="all">Все</label>
+                    </li>
+                    <li>
+                        <label for="roman">Роман</label>
+                    </li>
+                    <li>
+                        <label for="povest">Повесть</label>
+                    </li>
+                    <li>
+                        <label for="rasskaz">Рассказ</label>
+                    </li>
+                    <li>
+                        <label for="antiutopia">Антиутопия</label>
+                    </li>
+                    <li>
+                        <label for="fentezi">Фэнтези</label>
+                    </li>
+                    <li>
+                        <label for="detektiv">Детектив</label>
+                    </li>
+                    <li>
+                        <label for="biografia">Биография</label>
+                    </li>
+                </ol>
+
+                <h4>По цене:</h4>
+                <div class="price">
+                    <p>
+                        <input type="number" id="inputPrLeft" class="input" placeholder="300" min="300" max="550" step="10" value="300">
+                        <input type="number" id="inputPrRight" class="input" placeholder="550" min="300" max="550" step="10" value="550">
+                    </p>
+                </div>
+
+                <h4>По году написания:</h4>
+                <div class="price">
+                    <p>
+                        <input type="number" id="inputYearLeft" class="input" placeholder="1865" min="1865" max="2019" step="15" value="1865">
+                        <input type="number" id="inputYearRight" class="input" placeholder="2019" min="1865" max="2019" step="15" value="2019">
+                    </p>
+                </div>
+                <div id="buttonsFilter">
+                    <input type="button" id="filtersSubmit" />
+                    <input type="button" id="filtersReset" />
+                    <ol>
+                        <li>
+                            <label for="filtersSubmit">Применить</label>
+                        </li>
+                        <li>
+                            <label for="filtersReset">Сбросить</label>
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+
+
+
+            <div class="books">
+
+                <!--search books-->
+                <div id="book_search" align="center">
+                    <div class="input-group">
+                        <input type="text" id="input_search_book" class="form-control" placeholder="Искать по названию" onFocus="this.select()">
+                        <button id="btn_search_book">Найти</button>
+                        <button id="btn_search_book_clear">Очистить</button>
+                    </div>
+                    <br>
+                </div>
+
+                <!--books-->
+                <div class="book-row">
+                    <div class="book-card" data-category="roman" data-year="1984" data-price="350" data-name="1984">
+                        <img class="image" src="../img/books/1984.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">350₽</p>
+                            <h3 class="book-title">1984</h3>
+                            <p class="book-author">Джордж Оурэл, 1949г. <br> Роман</p>
+                        </div>
+                    </div>
+
+                    <div class="book-card" data-category="povest" data-year="1983" data-price="420" data-name="Черный монах">
+                        <img class="image" src="../img/books/cherniyMonah.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">420₽</p>
+                            <h3 class="book-title">Черный монах</h3>
+                            <p class="book-author">А.П. Чехов, 1893г. <br> Повесть</p>
+                        </div>
+                    </div>
+
+                    <div class="book-card" data-category="rasskaz" data-year="1905" data-price="380" data-name="Дары волхвов">
+                        <img class="image" src="../img/books/dariVolhvov.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">380₽</p>
+                            <h3 class="book-title">Дары волхвов</h3>
+                            <p class="book-author">О. Генри, 1905г. <br> Рассказ</p>
+                        </div>
+                    </div>
+
+                    <div class="book-card" data-category="roman antiutopia" data-year="1893" data-price="500" data-name="Мы">
+                        <img class="image" src="../img/books/mi.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">500₽</p>
+                            <h3 class="book-title">Мы</h3>
+                            <p class="book-author">Е.И. Замятин, 1893г. <br> Роман, антиутопия</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-row">
+                    <div class="book-card" data-category="fentezi" data-year="1937" data-price="485" data-name="Хоббит, или туда и обратно">
+                        <img class="image" src="../img/books/hobbitTudaObratno.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">485₽</p>
+                            <h3 class="book-title">Хоббит, или туда и обратно</h3>
+                            <p class="book-author">Джон Р.Р. Толкин, 1937. <br> Фэнтези</p>
+                        </div>
+                    </div>
+
+                    <div class="book-card" data-category="detektiv" data-year="1963" data-price="320" data-name="Изощренное убийство">
+                        <img class="image" src="../img/books/izoshrennoeUbiystvo.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">320₽</p>
+                            <h3 class="book-title">Изощренное убийство</h3>
+                            <p class="book-author">Филлис Дороти Джеймс, 1963г. <br> Детектив</p>
+                        </div>
+                    </div>
+
+                    <div class="book-card" data-category="roman" data-year="1868" data-price="300" data-name="Маленькие женщины">
+                        <img class="image" src="../img/books/malenkieZhenshini.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">300₽</p>
+                            <h3 class="book-title">Маленькие женщины</h3>
+                            <p class="book-author">Луиза Мэй Олкотт, 1868-1869г. <br> Роман</p>
+                        </div>
+                    </div>
+
+                    <div class="book-card" data-category="detektiv" data-year="1927" data-price="400" data-name="Неестественная смерть">
+                        <img class="image" src="../img/books/neestestvennayaSmert.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">400₽</p>
+                            <h3 class="book-title">Неестественная смерть</h3>
+                            <p class="book-author">Дороти Сэйерс, 1927г. <br> Детектив</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-row">
+                    <div class="book-card" data-category="roman antiutopia" data-year="1932" data-price="325" data-name="О дивный новый мир">
+                        <img class="image" src="../img/books/odivniyNoviyMir.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">325₽</p>
+                            <h3 class="book-title">О дивный новый мир</h3>
+                            <p class="book-author">Олдос Хаксли, 1932г. <br> Роман, антиутопия</p>
+                        </div>
+                    </div>
+
+                    <div class="book-card" data-category="roman" data-year="1950" data-price="520" data-name="Пойди, поставь сторожа">
+                        <img class="image" src="../img/books/poydiPostavStorozha.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">520₽</p>
+                            <h3 class="book-title">Пойди, поставь сторожа</h3>
+                            <p class="book-author">Харпер Ли, 1950г. <br> Роман</p>
+                        </div>
+                    </div>
+
+                    <div class="book-card" data-category="roman" data-year="1865" data-price="420" data-name="Преступление и наказание">
+                        <img class="image" src="../img/books/prestuplenieNakazanie.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">420₽</p>
+                            <h3 class="book-title">Преступление и наказание</h3>
+                            <p class="book-author">Ф.М. Достоевский, 1865-1866г. <br> Роман</p>
+                        </div>
+                    </div>
+
+                    <div class="book-card" data-category="biografia" data-year="2019" data-price="300" data-name="Страстная мечта">
+                        <img class="image" src="../img/books/strastnayaMechta.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">300₽</p>
+                            <h3 class="book-title">Страстная мечта</h3>
+                            <p class="book-author">Ли Страсберг, 2019г. <br> Биография</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-row">
+                    <div class="book-card" data-category="rasskaz" data-year="1956" data-price="550" data-name="Судьба человека">
+                        <img class="image" src="../img/books/sudbaCheloveka.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">550₽</p>
+                            <h3 class="book-title">Судьба человека</h3>
+                            <p class="book-author">М.А. Шолохов, 1956г. <br> Рассказ</p>
+                        </div>
+                    </div>
+
+                    <div class="book-card" data-category="roman" data-year="1960" data-price="420" data-name="Убить пересмешника">
+                        <img class="image" src="../img/books/UbitPeresmeshnika.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">420₽</p>
+                            <h3 class="book-title">Убить пересмешника</h3>
+                            <p class="book-author">Харпер Ли, 1960г. <br> Роман</p>
+                        </div>
+                    </div>
+
+                    <div class="book-card" data-category="fentezi" data-year="1955" data-price="495" data-name="Возвращение короля">
+                        <img class="image" src="../img/books/vozvrachenieKorolya.jpg" />
+                        <div class="book-info">
+                            <p class="book-price">495₽</p>
+                            <h3 class="book-title">Возвращение короля</h3>
+                            <p class="book-author">Джон Р. Р. Толкин, 1955г. <br> Фэнтези</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <div id="footer">
+            <div>
+                <h3 id="contactsH3">Контакты</h3>
+                <div class="contact-item">
+                    <img id="pictureW" class="contacts" src="../img/contacts/whatsapp.png" />
+                    <span>+7(916)123-53-77</span>
+                </div>
+
+                <div class="contact-item">
+                    <img id="pictureT" class="contacts" src="../img/contacts/telegram.png" />
+                    <span>@domKnigi</span>
+                </div>
+
+                <div class="contact-item">
+                    <img id="pictureM" class="contacts" src="../img/contacts/mail.png" />
+                    <span>dom_knigi@mail.ru</span>
+                </div>
+
+                <div class="contact-item">
+                    <img id="pictureM" class="contacts" src="../img/contacts/address.png" />
+                    <span>Улица новый арбат дом 1</span>
+                </div>
+            </div>
+            <div id="textFooter">
+                <p>
+                    Магазин “Дом книги” был не просто местом для покупки книг, а настоящим убежищем для
+                    <br> любителей чтения. Его стены хранили аромат старых страниц, а полки ломились от книг на
+                    <br> любой вкус. Хозяйка магазина, мисс Кристина А., была человеком с доброй душой и беско-
+                    <br> нечной любовью к книгам. Она знала каждую книгу в своем магазине и с радостью делилась
+                    <br> своими знаниями с посетителями. В “Дом книги” можно было найти как бестселлеры, так и
+                    <br> редкие издания, а атмосфера уюта делала посещение магазина настоящим праздником для души.
+                </p>
+            </div>
+            <div id="btnFooter">
+                <input type="button" id="up" />
+                <ol>
+                    <li>
+                        <label for="up">Наверх</label>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.7.1_min.js"></script>
+    <script src="../js/banner.js"></script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+body {
+    background: url("../img/backGrNew.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #6e6e65;
+    font-family: 'Century Gothic', sans-serif;
+    background-color: #e3dbc4;
+    overflow-y: auto; 
+    height: 100vh;
+}
+
+/* first page*/
+
+.buttonsMenu:not(#enter) {
+    margin-left: -50px;
+}
+
+#title {
+    margin-top: 95px;
+    margin-left: 40px;
+    font-size: 55px;
+    color: #3c8573
+}
+
+.quote-container {
+    margin-top: -50px;
+}
+
+#Citata {
+    margin-left: -50px;
+    font-size: 22px;
+    white-space: pre-wrap;
+    text-align: justify;
+    line-height: 1.7em;
+}
+
+.author {
+    margin-top: -20px;
+    margin-left: 395px;
+    line-height: 0;
+    font-size: 25px;
+}
+
+
+
+.buttons {
+    background-color: #8e673e;
+    width: 100px;
+    height: 30px;
+    border-radius: 20%;
+    font-size: 19px;
+    color: #1b1b19;
+    font-family: 'Century Gothic', sans-serif;
+}
+#toBooks {
+    background-color: #8e673e;
+    border-radius: 20%;
+    margin-top: 190px;
+    margin-left: 80px;
+    width: 200px;
+    height: 60px;
+    font-size: 25px;
+    color: #1b1b19;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+
+
+/* page with books */
+
+.booksPage {
+    display: flex;
+    margin-top: 270px;
+}
+
+
+.image {
+    height: 300px;
+    width: 220px;
+}
+
+.book-price {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+    .book-price:hover, .book-author:hover, .book-title:hover{
+        text-decoration: underline;
+    }
+
+.book-title {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.book-author {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 4 books in a row */
+
+.book-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    grid-gap: 20px;
+    grid-auto-rows: minmax(150px, auto); 
+}
+
+.book-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    margin: 5px;
+}
+
+.books {
+    margin-left: 45px;
+    width: 75%;
+    height: 75%;
+
+}
+
+
+
+/* filters */
+
+.filter{
+    max-width: 25%;
+    max-height: 25%;
+    margin-left: 20px;
+    margin-bottom: 2rem;
+}
+.filters *{
+    display: block;
+}
+.filterBtns {
+    display: flex;
+
+}
+.buttonsMenu * {
+    display: flex;
+    margin-left: 10px;
+    margin: 0 20px;
+    font-size: 20px;
+    white-space: pre-wrap;
+    text-align: justify;
+    line-height: 1.7em;
+}
+#buttonsFilter * {
+    
+    padding: 10px;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 0px;
+    justify-content: space-between;
+}
+
+
+
+.filters label, .buttonsMenu label, #btnFooter label, #buttonsFilter label, .buttonsMenuOnForm label {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.25rem;
+    border-radius: 2rem;
+    line-height: normal;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+    .filters label:hover, .buttonsMenu label:hover, #buttonsFilter label:hover, #btnFooter label:hover, .buttonsMenuOnForm label:hover {
+        background: var(--green);
+        color: var(--white);
+    }
+
+
+input[type="button"] {
+    position: absolute;
+    left: -9999px;
+}
+input[type="radio"] {
+    position: absolute;
+    left: -9999px;
+}
+.input {
+    background: var(--green);
+    color: var(--white);
+    width: 100px;
+    height: 30px;
+    font-family: 'Century Gothic', sans-serif;
+    border-radius: 20px;
+}
+
+:root {
+    --black: #1a1a1a;
+    --white: #fff;
+    --green: #3c8573;
+}
+
+
+
+
+[value="all"]:checked ~ .filters [for="all"],
+[value="roman"]:checked ~ .filters [for="roman"],
+[value="antiutopia"]:checked ~ .filters [for="antiutopia"],
+[value="povest"]:checked ~ .filters [for="povest"],
+[value="rasskaz"]:checked ~ .filters [for="rasskaz"],
+[value="detektiv"]:checked ~ .filters [for="detektiv"],
+[value="fentezi"]:checked ~ .filters [for="fentezi"] {
+    background: var(--green);
+    color: var(--white);
+}
+
+/*
+
+[value="roman"]:checked ~ .book-card:not([data-category~="roman"]),
+[value="antiutopia"]:checked ~ .book-card:not([data-category~="antiutopia"]),
+[value="povest"]:checked ~ .book-card:not([data-category~="povest"]),
+[value="rasskaz"]:checked ~ .book-card:not([data-category~="rasskaz"]),
+[value="detektiv"]:checked ~ .book-card:not([data-category~="detektiv"]),
+[value="fentezi"]:checked ~ .book-card:not([data-category~="fentezi"]) {
+    display: none;
+}
+*/
+
+.price {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+    .price input {
+        width: 60px;
+        margin: 0 10px;
+        text-align: center;
+    }
+
+
+/* search books */
+
+#input_search_book {
+    text-align: center;
+    border-radius: 20px;
+    background-color: #e3dbc4;
+    border: 2px;
+    width: 40%;
+    height: 30px;
+    padding-right: 0;
+    border: 2px solid #ccc;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: bold;
+}
+
+#btn_search_book, #btn_search_book_clear {
+    height: 30px;
+    width: 75px;
+    border-radius: 20px;
+    background-color: #3c8573;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+/* footer */
+/* contacts */
+
+#contactsH3 {
+    margin-left: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.contacts {
+    width: 25px;
+    height: 25px;
+}
+
+.contact-item span {
+    margin-left: 10px; 
+}
+
+#footer {
+    display: flex;
+}
+
+#textFooter {
+    margin-left: 200px;
+    text-align: justify; 
+    line-height: 1.6; 
+}
+
+#btnFooter {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 19px;
+}
+    #btnFooter ol {
+        counter-reset: item 0;
+        list-style-type: none; 
+    }
+
+#enter{
+    margin-left: 300px;
+}
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed; 
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+
+    background-color: #e3dbc4;
+    border-radius: 25px;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; 
+    text-align: center;
+}
+
+
+#auth-form-enter, #auth-form-registracia {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#auth-form-enter input, #auth-form-registracia input{
+    height: 35px;
+    width: 170px;
+}
+
+.buttonsMenuOnForm{
+
+    display: flex;
+    margin: auto;
+}
+.top{
+    display: flex;
+}
+.h2Top{
+    margin-left:145px;
+}
+.exit{
+    margin-left: 100px;
+    border-radius: 20px;
+    background-color: #3c8573;
+}
+#vhod, #resetBtn{
+    margin-right: 20px;
+    height: 30px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: #3c8573;
+    font-family: 'Century Gothic', sans-serif;
+}
+#registracia, #registraciaConfirm{
+    margin-left: 20px;
+    height: 30px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: #3c8573;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+#login, #password, #login-reg, #password-reg, #password-reg-conf{
+    text-align: center;
+    border-radius: 20px;
+    background-color: #e3dbc4;
+    border: 2px;
+    width: 40%;
+    height: 30px;
+    padding-right: 0;
+    border: 2px solid #ccc;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: bold;
+}
+
+
+
